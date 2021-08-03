@@ -1,0 +1,43 @@
+#!/bin/bash
+
+pushd $HOME
+
+dot=.dotfiles
+
+# link individual files
+# REFACTOR decide whether we take all (with an exclusion list) or use an explicit list
+for f in .bash_logout \
+    .bash_profile \
+    .bashrc \
+    .dircolors \
+    .git-completion.bash \
+    .gitconfig \
+    .git-prompt.sh \
+    .gvimrc \
+    .ideavimrc \
+    .profile \
+    .tmux.conf \
+    .vim \
+    .vimrc
+do
+    [[ -e $f ]] && rm -fr $f
+    ln -s $dot/$f
+done
+
+# create links for each of the files in bin
+[[ ! -e bin ]] && mkdir bin
+cd bin
+for f in ../$dot/bin/*
+do
+    name=$(basename $f)
+    [[ -L $name || -e $name ]] && rm $name
+    ln -s $f $name
+done
+    
+
+# update git submodules
+cd ../$dot
+git submodule init
+git submodule update
+
+popd

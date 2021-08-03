@@ -1,0 +1,4 @@
+#!/bin/bash
+
+url='https://api.duckduckgo.com/?format=json&kad=de_DE&q='
+curl --silent "$url$1" | jshon -e AbstractText -u -p -e AbstractURL -u

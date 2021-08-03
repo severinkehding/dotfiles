@@ -1,0 +1,18 @@
+[user]
+	email = l.heller@tarent.de
+	name = Lars Heller
+[push]
+	default = simple
+
+[alias]
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all --date=format:'%a %d.%m.%y %H:%M'
+    lg = !"git lg1"
+    ss = status -s
+    tagswithdates = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+
+[core]
+	editor = '/usr/bin/vim'
+	autocrlf = input
+[pull]
+	ff = only

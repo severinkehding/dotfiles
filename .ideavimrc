@@ -1,0 +1,5 @@
+" searching
+set hlsearch                           " hightlight search results
+set incsearch                          " incremental search
+set ignorecase                         " ignore case when searching
+set smartcase                          " search case sensitive if an upper case letter is used

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=My Xmodmap
+MimeType=
+Exec=xmodmap ~/.Xmodmap
+Type=Application
+GenericName=Terminal
+Terminal=false
+Icon=terminal
+Comment=xmodmap
+Categories=System;
+X-KDE-StartupNofify=false
+X-GNOME-UsesNotifications=true

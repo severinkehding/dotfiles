@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+pipe=$(mktemp -u)
+mkfifo $pipe
+
+(cat $pipe | sed -E -n '0,/^\s*$/ p' &)
+curl "$@" | tee $pipe | sed -E -n '/^\s*$/,$ p' | jq
+
+rm $pipe
